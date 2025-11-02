@@ -9,6 +9,8 @@ class Solution:
                 
         return []
     
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def twoSum2(self, nums: List[int], target: int) -> List[int]:
         map = {}
         for i in range(len(nums)):
