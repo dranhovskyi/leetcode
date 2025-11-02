@@ -1,0 +1,58 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","languageName":"csharp"},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"html","languageName":"HTML"},{"name":"http","languageName":"HTTP"},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"mermaid","languageName":"Mermaid"},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"value"}]}}
+
+#!csharp
+
+var nums = new int[] { 2, 7, 11, 15 };
+var target = 9;
+
+Console.WriteLine(string.Join(", ", TwoSum2(nums, target)));
+
+nums = [3,2,4];
+target = 6;
+
+Console.WriteLine(string.Join(", ", TwoSum2(nums, target)));
+
+nums = [3,3]; 
+target = 6;
+
+Console.WriteLine(string.Join(", ", TwoSum2(nums, target)));
+
+// O(n^2) time complexity solution, space O(1)
+public int[] TwoSum1(int[] nums, int target) 
+{
+    for(int i = 0; i < nums.Length; i++)
+    {
+        for (int j = i + 1; j <= nums.Length-1; j++)
+        {
+            var sum = nums[i] + nums[j];
+
+            if (sum == target)
+            {
+                return new int[] { i, j };
+            }
+        }
+    }
+
+    // No two sum solution found
+    return new int[] {};
+}
+
+// O(n) time complexity solution, space O(n)
+public int[] TwoSum2(int[] nums, int target) 
+{
+    Dictionary<int, int> map = new Dictionary<int, int>();
+    for (int i = 0; i < nums.Length; i++)
+    {
+        var complement = target - nums[i];
+        if (map.ContainsKey(complement))
+        { 
+            return new int[] { map[complement], i };
+        } 
+
+        map[nums[i]] = i;
+    }
+
+    return new int[] {};
+}
