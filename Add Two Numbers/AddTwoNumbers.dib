@@ -17,7 +17,9 @@ public class ListNode
       }
  }
  
-public class Solution 
+// My solution Complexity: O(n+m) Space: O(n+m)
+// Converting BigInteger is an overkill for this problem, but it works for very large numbers.
+public class Solution1 
 {
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2) 
     {
@@ -73,5 +75,13 @@ public class Solution
         }
 
         return result;
+    }
+}
+
+public class Solution2 
+{
+    public ListNode AddTwoNumbers(ListNode l1, ListNode l2) 
+    {      
+        
     }
 }
