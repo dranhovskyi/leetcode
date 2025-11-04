@@ -14,4 +14,4 @@ class Solution:
 
             maxLen = max(maxLen, right - left + 1)
         
-        return maxLen 
+        return maxLen
