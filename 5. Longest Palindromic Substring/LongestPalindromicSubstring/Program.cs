@@ -1,0 +1,43 @@
+﻿// See https://aka.ms/new-console-template for more information
+
+Console.WriteLine("Hello, World!");
+
+var solution = new Solution();
+var result = solution.LongestPalindrome("babad");
+Console.WriteLine(result);
+
+public class Solution 
+{
+    public string LongestPalindrome(string s) 
+    {
+        for (int length = s.Length; length > 0; length--)
+        {
+            for (int start = 0; start <= s.Length - length; start++)
+            {
+                if (Check(s, start, start + length))
+                {
+                    return s.Substring(start, length);
+                }
+            }
+        }
+
+        return string.Empty;
+    }
+
+    private bool Check(string s, int i, int j)
+    {
+        int left = i;
+        int right = j - 1;
+
+        while (left < right)
+        {
+            if (s[left] != s[right])
+                return false;
+            
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
