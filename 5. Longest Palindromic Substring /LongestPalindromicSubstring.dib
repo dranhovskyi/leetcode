@@ -4,10 +4,6 @@
 
 #!csharp
 
-var solution = new Solution();
-var result = solution.LongestPalindrome("babad");
-Console.WriteLine(result);
-
 public class Solution 
 {
     public string LongestPalindrome(string s)
@@ -43,3 +39,7 @@ public class Solution
         return true;
     }
 }
+
+var solution = new Solution();
+var result = solution.LongestPalindrome("babad");
+Console.WriteLine(result);
